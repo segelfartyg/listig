@@ -63,7 +63,6 @@ func getExampleList(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-
 	http.HandleFunc("/status", getGenericList)
 	http.HandleFunc("/status/docker", getDockerPsStatusList)
 	http.HandleFunc("/status/example", getExampleList)
@@ -71,7 +70,7 @@ func main() {
 }
 
 func getGenericList(w http.ResponseWriter, req *http.Request) {
-	var genericList [2]GenericList
+	var genericList [len(sources)]GenericList
 
 	// GETTING DOCKER PS LIST
 	var dockerPs []DockerPs
