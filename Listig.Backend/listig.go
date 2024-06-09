@@ -40,10 +40,6 @@ func getDockerPsStatusList(w http.ResponseWriter, req *http.Request) {
 
 	json.Unmarshal(dat, &dockerPs)
 
-	for i := 0; i < len(dockerPs); i++ {
-		fmt.Println(dockerPs[i].Image)
-	}
-
 	result, _ := json.Marshal(dockerPs)
 
 	fmt.Fprint(w, string(result))
